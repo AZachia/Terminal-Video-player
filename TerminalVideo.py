@@ -3,10 +3,11 @@ import color
 import cv2
 import time
 
-print(color.hide)
+print(color.hide) # Hide the cursor *
 
 
-def get_color(image):
+def get_color(image: Image) -> list[list]:
+    """Return a list of list with the colors of the image in the rgb format"""
     couleurs_pixels = []
     largeur, hauteur = image.size
 
@@ -21,6 +22,16 @@ def get_color(image):
 
 
 def print_image(image, widht: int = None, height: int = None, margin: str = '', margin2: str = '', char: str = ' ', background: bool = True):
+    """Print an image in the terminal
+    Args:
+        image (_type_): the image to print
+        widht (int, optional): the widht of the image. Defaults to None.
+        height (int, optional): the height of the image. Defaults to None.
+        margin (str, optional): _description_. Defaults to ''.
+        margin2 (str, optional): _description_. Defaults to ''.
+        char (str, optional): the charatere to print. Defaults to ' '.
+        background (bool, optional): print the background or the foreground of the charatere. Defaults to True.
+    """
     largeur, hauteur = image.size
     if widht == None:
         widht = int(color.os.get_terminal_size().columns/2)
